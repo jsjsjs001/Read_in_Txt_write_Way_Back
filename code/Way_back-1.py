@@ -1,4 +1,4 @@
-#start: administrator: windows špover shell 
+#start: administrator: Anaconda Prompt 
 # conda update -n base -c defaults conda
 
 # Installers
