@@ -20,7 +20,7 @@ abstract: >-
   If not available, it push the content to the WB. In the
   output it add the WB URL as a safe copy of the original, 
   for purpuse of longterm and persistent news item
-  preservation.
+  preservation. 
 keywords:
   - Archive News Website
   - Research Data Archiving
