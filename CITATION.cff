@@ -13,6 +13,9 @@ authors:
     orcid: 'https://orcid.org/0000-0001-6799-8088'
 repository-code: 'https://github.com/akamhy/waybackpy'
 url: 'https://github.com/jsjsjs001/Read_in_Txt_write_Way_Back'
+identifiers:
+  - type: doi
+    value: https://doi.org/10.5281/zenodo.10992412
 abstract: >-
   Python script that interfaces with the Internet Archive's
   Wayback Machine (WB) APIs.  Given the list of public news
