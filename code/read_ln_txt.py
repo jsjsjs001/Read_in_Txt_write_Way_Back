@@ -84,13 +84,26 @@ for line in lines:
         print("list is empty")
 #    print("Urls: ", Find(line))
 
-    # extracting date using inbuilt func. Example '14. april 2017'; '5. 1. 2017' in order to save closest snapshot WB copy
+    # extracting date using inbuilt func. Example format for date  '5. 1. 2017' in order to save closest snapshot WB copy
     # searching string
     x = line.replace(". ", "-")  
     # searching string
     a = [r'\(\d{2}-\d{2}-\d{4}\)', r'\(\d{2}-\d{1}-\d{4}\)', r'\(\d{1}-\d{1}-\d{4}\)', r'\(\d{1}-\d{2}-\d{4}\)']
     match_str = re.search(r'\(\d{2}-\d{1}-\d{4}\)', x)#    a = [r'\d{2}-\d{2}-\d{4}' , r'\d{2}-\d{1}-\d{4}', r'\d{1}-\d{1}-\d{4}', r'\d{1}-\d{2}-\d{4}']
 #    match_str = re.search(r'\d{2}-\d{1}-\d{4}', x)
+
+############
+    # searching string if date is in brackets like for example: '(10. 2. 2015)'
+    #a = [r'\(\d{2}-\d{2}-\d{4}\)', r'\(\d{2}-\d{1}-\d{4}\)', r'\(\d{1}-\d{1}-\d{4}\)', r'\(\d{1}-\d{2}-\d{4}\)']
+    #match_str = re.search(r'\(\d{2}-\d{1}-\d{4}\)', x)#    a = [r'\d{2}-\d{2}-\d{4}' , r'\d{2}-\d{1}-\d{4}', r'\d{1}-\d{1}-\d{4}', r'\d{1}-\d{2}-\d{4}']
+
+    # searching string brez oklepajev
+    a = [r'\d{2}-\d{2}-\d{4}', r'\d{2}-\d{1}-\d{4}', r'\d{1}-\d{1}-\d{4}', r'\d{1}-\d{2}-\d{4}']
+    match_str = re.search(r'\d{2}-\d{1}-\d{4}', x)#    a = [r'\d{2}-\d{2}-\d{4}' , r'\d{2}-\d{1}-\d{4}', r'\d{1}-\d{1}-\d{4}', r'\d{1}-\d{2}-\d{4}']
+
+
+
+#############
     while a : # and not match_str:
         ai = (a.pop(-1))
         print(ai)

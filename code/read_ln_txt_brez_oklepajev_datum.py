@@ -1,6 +1,27 @@
 # Detect date in String
 # Using python-dateutil()
 # Using re.search() + strptime()
+######################################
+# Instaling waybackpy
+#start: administrator: Anaconda Prompt 
+# conda update -n base -c defaults conda
+
+# Installers
+#conda install
+#    noarch  v3.0.6
+#To install this package with conda run: ##
+#conda install -c conda-forge waybackpy 
+#https://github-wiki-see.page/m/akamhy/waybackpy/wiki/Python-package-docs
+
+#the file “requirements.txt” lists these dependencies, please run “pip install -r requirements.txt” as the first
+#step. See https://pip.pypa.io/en/stable/user_guide/#ensuring-repeatability for further instructions on creating
+#and using the “requirements.txt” file.
+
+# conda install -c conda-forge waybackpy
+
+# Usefull to expore
+# https://github.com/sangaline/wayback-machine-scraper
+###################################################
 import waybackpy # imported the waybackpy.
 
 from waybackpy import WaybackMachineCDXServerAPI
