@@ -35,14 +35,3 @@ keywords:
 license: CC-BY-4.0
 version: 1.0.0
 date-released: '2024-04-18'
-  references:
-    date-released: "2017-01-01"
-    doi: 10.17898/ADP_INTERD17_V1
-    repository-code: https://www.adp.fdv.uni-lj.si/opisi/interd17/
-    title: Citizenship and Discrimination. Intersectional Approach to Research of Social Exclusion, 2017 [Data file].
-    type: data
-    version: 1.0
-  - authors:
-      - family-names: Kuhar
-        given-names: Roman
-    year: 2017
