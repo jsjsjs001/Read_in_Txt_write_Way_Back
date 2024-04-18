@@ -18,6 +18,9 @@
 #and using the “requirements.txt” file.
 
 # conda install -c conda-forge waybackpy
+
+# Usefull to expore
+# https://github.com/sangaline/wayback-machine-scraper
 ###################################################
 import waybackpy # imported the waybackpy.
 
@@ -29,10 +32,10 @@ import re
 from datetime import datetime
 
 from dateutil import parser
+#importing the os module
+import os
 
-
-import re
-
+import time
 
 # Python code to find the URL from an input string
 # Using the regular expression
@@ -50,14 +53,22 @@ def Find(string):
 #outfile = infile[:-4] + "-bak" + infile[-4:]
 #doc.save(outfile)
 
+#to get the current working directory
+directory = os.getcwd()
+print('tole: ', directory, ' konec')
+
+os.chdir('data')
+dir1 = os.getcwd()
+print('tole 1: ', dir1, ' konec')
+
 
 lines = []
-with open(r"C:\Users\stebej\OneDriveUL2021\OneDrive - Univerza v Ljubljani\Python_delovni\gradiva\interd17_p2_sl_v1_r1.txt") as f:
+with open(r"interd17_p2_sl_v1_r1.txt") as f:
     lines = f.readlines()
 
-    #output 
+#output 
 
-f_out = open(r"C:\Users\stebej\OneDriveUL2021\OneDrive - Univerza v Ljubljani\Python_delovni\gradiva\interd17_p2_sl_v1_r2.txt", 'w' )
+f_out = open(r"interd17_p2_sl_v1_r2.txt", 'w' )
 
 
 
@@ -117,6 +128,8 @@ for line in lines:
     else: # Urls: če so urlji
         print("URLS: test wayback", Urls[0], url)
         user_agent = "Your-user-agent"
+        #add sleep time to prevent wayback exceed error
+        time.sleep(20)
 
         
 

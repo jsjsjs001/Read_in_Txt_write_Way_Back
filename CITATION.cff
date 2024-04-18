@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Štebe"
+  given-names: "Janez"
+  orcid: "https://orcid.org/0000-0001-6799-8088"
+title: "Read web addreess from the text file and write add Wayback address"
+abstract: "Python script that interfaces with the Internet Archive's Wayback Machine (WB) APIs. 
+Given the list of public news articles with date and URL, it check for copy in the WB. If not available,
+it push the content to the WB. In the output it add the WB URL as a safe copy of the original, 
+for purpuse of longterm and persistent new item preservation."
+version: 1.0.0
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.1
+date-released: 2024-4-18
+type: software
+keywords:
+    - Archive News Website
+    - Research Data Archiving 
+    - Wayback Machine
+    - Internet Archive
+    - Wayback Machine Python
+    - Internet Archiving
+    - savepagenow
+license: MIT
+repository-code: "https://github.com/akamhy/waybackpy"
+url: "https://github.com/jsjsjs001/Read_in_Txt_write_Way_Back"
