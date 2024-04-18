@@ -49,35 +49,32 @@ def Find(string):
     return [x[0] for x in url]
       
 
-
-#outfile = infile[:-4] + "-bak" + infile[-4:]
-#doc.save(outfile)
-
 #to get the current working directory
 directory = os.getcwd()
-print('tole: ', directory, ' konec')
+print('current working directory: ', directory, ' end')
 
+#change current working directory to 'data'
 os.chdir('data')
 dir1 = os.getcwd()
-print('tole 1: ', dir1, ' konec')
+print('current working directory ', dir1, ' end')
 
-
+# input file, read line by line
 lines = []
 with open(r"interd17_p2_sl_v1_r1.txt") as f:
     lines = f.readlines()
 
-#output 
-
+#output file
 f_out = open(r"interd17_p2_sl_v1_r2.txt", 'w' )
 
-
-
+# Check content of each line in lines
 count = 0
 for line in lines:
     count += 1
     print(f'line {count}: {line}')    
     # Driver Code
-#    string = 'My Profile: https://auth.geeksforgeeks.org/user/Chinmoy%20Lenka/articles in the portal of https://www.geeksforgeeks.org/'
+    #    string = 'My Profile: https://auth.geeksforgeeks.org/user/Chinmoy%20Lenka/articles 
+    # in the portal of https://www.geeksforgeeks.org/'
+    #search for Url in the line
     Urls = Find(line)
     if Urls:
         print("Urls: ", Urls[0])
@@ -86,10 +83,9 @@ for line in lines:
     else:
         print("list is empty")
 #    print("Urls: ", Find(line))
-    # extracting date using inbuilt func.
+
+    # extracting date using inbuilt func. Example '14. april 2017'; '5. 1. 2017' in order to save closest snapshot WB copy
     # searching string
-
-
     x = line.replace(". ", "-")  
     # searching string
     a = [r'\(\d{2}-\d{2}-\d{4}\)', r'\(\d{2}-\d{1}-\d{4}\)', r'\(\d{1}-\d{1}-\d{4}\)', r'\(\d{1}-\d{2}-\d{4}\)']
@@ -112,22 +108,20 @@ for line in lines:
         # printing result
         print("Computed date I : "+ str(res))
     else: 
-        print('ni našel')  
+        print('date not resolved')  
 
 #        url = "https://nova24tv.si/slovenija/poglejte-kako-se-po-porazu-prepirajo-10-stvari-ki-so-pri-kampanji-za-sle-narobe/"
 
     #********************wayback part (begin)
 
     if not Urls:
-        # zapisuje out
+        # write lines if not with Url
         f_out.write(line)
 #        f_out.write('\n')
 
-
-
-    else: # Urls: če so urlji
+    else: # Urls: if true url
         print("URLS: test wayback", Urls[0], url)
-        user_agent = "Your-user-agent"
+        user_agent = "Your-user-agent" #default
         #add sleep time to prevent wayback exceed error
         time.sleep(20)
 
@@ -138,7 +132,7 @@ for line in lines:
             print("try ", Urls[0], url) 
 
             cdx = WaybackMachineCDXServerAPI(url=url, user_agent=user_agent)
-        #izpis vseh instanc
+        #write instances
         #snapshots = cdx.snapshots()#
         #for snapshot in snapshots:#
         #    print(snapshot)
@@ -160,7 +154,7 @@ for line in lines:
         #    oldest = cdx_api.oldest()
         #    print(oldest)
         #    print(oldest.archive_url)
-
+        # in case if wb instance does not exsist
         except  waybackpy.exceptions.ArchiveNotInAvailabilityAPIResponse: #waybackpy.exceptions.NoCDXRecordFound :
             w_back =  " WaybackMachine stran ne obstaja! "
             print(' WaybackMachine stran ne obstaja! ')
@@ -170,14 +164,12 @@ for line in lines:
 
     #********************wayback part (end)
         l = line.strip() + " <" + str(w_back) + ">" 
-        f_out.write(l) #line + " <" + str(w_back) + ">" )
+        f_out.write(l) # add to the line WB Url in the brackets + " <" + str(w_back) + ">" )
 #        f_out.write('\n')
 
 
 
-
-
-# podvojeno od zgoraj
+# miscelanus variants tried
 #    match_str = re.search(r'\d{2}. \d{2}. \d{4}', line)
     # computed date
     # feeding format
@@ -227,7 +219,7 @@ for line in lines:
 #print("The original string is : " + str(test_str))
 
 
-#textdoc = load(r"C:\Users\stebej\OneDriveUL2021\OneDrive - Univerza v Ljubljani\Python_delovni\gradiva")
+#textdoc = load(r"C:\Python_delovni\gradiva")
 #allparas = textdoc.getElementsByType(text.P)
 #for i in range(len((allparas))):
 #    a=teletype.extractText(allparas[i])
